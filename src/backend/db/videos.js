@@ -5,17 +5,66 @@
 
 export const videos = [
   {
-    _id: "Wo5dMEP_BbI",
-    title: "Awesome Video about Coding",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    creator: "Soham Shah",
+    _id: "pwwVOpXrazs",
+    title: "How to make an Arduino Robot 🤖 ?",
+    category: "Arduino",
+  },
+
+  {
+    _id: "Y5EHykJ-MiY",
+    title: "The Self Balancing Robot",
+    category: "Breadboard",
   },
   {
-    _id: "F_Riqjdh2oM",
-    title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
-    creator: "Sentdex",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    _id: "yAV5aZ0unag",
+    title: "How To Make Human Following Bot",
+    category: "Arduino",
+  },
+  {
+    _id: "Zdv4cOmOmb8",
+    title: "The Ultimate Raspberry Pi 4 Robot ",
+    category: "RasberryPie",
+  },
+  {
+    _id: "8LSOoVZbfFM",
+    title: "How To Make A Spider Robot ",
+    category: "Arduino",
+  },
+
+  {
+    _id: "6YH02U96DfY",
+    title: "Types of Sensors",
+    category: "Sensor",
+  },
+
+  {
+    _id: "83tVkgT89dM",
+    title: "Arduino Mecanum Wheels Robot",
+    category: "Wheels",
+  },
+  {
+    _id: "yYyPeZPoJH8",
+    title: " Arduino Light Tracking Robot",
+    category: "Arduino",
+  },
+  {
+    _id: "6Hau75Zkpj4",
+    title: "Raspberry Pi Tutorial ",
+    category: "RasberryPie",
+  },
+  {
+    _id: "1n_KjpMfVT0",
+    title: " Arduino Obstacle Avoiding Car ",
+    category: "Arduino",
+  },
+  {
+    _id: "mE33WpRWrXs",
+    title: "Everything about Breadboards",
+    category: "Breadboard",
+  },
+  {
+    _id: "DlG6LY84MUU",
+    title: "Sensors - which one to use",
+    category: "Sensor",
   },
 ];
