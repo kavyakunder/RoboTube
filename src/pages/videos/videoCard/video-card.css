@@ -1,4 +1,4 @@
-.video-card {
+/* .video-card {
   width: 23rem;
   height: 17rem;
   background-color: #f4f4f4;
@@ -28,4 +28,51 @@
 
 .category-name {
   font-size: 1rem;
+}
+.cat-options {
+  display: flex;
+  justify-content: space-between;
+}
+.fa {
+  font-size: 1rem;
+  padding: 0 1rem;
+} */
+.video-card {
+  width: 23rem;
+  height: 17rem;
+  background-color: rgb(244, 244, 244);
+  margin: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgb(199, 199, 199);
+}
+.video-cards {
+  margin-left: 16rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.video-img {
+  border-radius: 10px 10px 0 0;
+
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.video-card-img {
+  height: 72%;
+  position: relative;
+  width: 100%;
+}
+
+.category-name {
+  font-size: 1rem;
+}
+.cat-options {
+  display: flex;
+  justify-content: space-between;
+}
+.fa {
+  font-size: 1.4rem;
+  padding: 0 1rem;
 }

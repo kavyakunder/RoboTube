@@ -15,6 +15,16 @@ export const reducer = (state, action) => {
         ...state,
         category: action.payload.category,
       };
+    case "LIKED_VIDEOS":
+      return {
+        ...state,
+        likes: [...state.likes, action.payload],
+      };
+    case "WATCH_LATER":
+      return {
+        ...state,
+        watchLater: [...state.watchLater.action.payload],
+      };
     default:
       return state;
   }
