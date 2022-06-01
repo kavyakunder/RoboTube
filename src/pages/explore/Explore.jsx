@@ -1,6 +1,7 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
+import { Navbar, Sidebar } from "../../components";
+// import Navbar from "../../components/navbar/Navbar";
+// import Sidebar from "../../components/sidebar/Sidebar";
 import VideoList from "../videos/videoList/VideoList";
 
 function Explore() {
