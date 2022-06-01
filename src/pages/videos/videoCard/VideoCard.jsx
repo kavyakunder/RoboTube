@@ -38,7 +38,27 @@ function VideoCard({ video }) {
                   aria-hidden="true"
                 ></i>
               )}
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+              {state.watchLater.find((prod) => prod._id === _id) ? (
+                <i
+                  class="fa fa-clock-o"
+                  style={{ color: "#06b6d4" }}
+                  aria-hidden="true"
+                ></i>
+              ) : (
+                <i
+                  className="fa fa-clock-o"
+                  onClick={() => {
+                    dispatch({
+                      type: "WATCH_LATER",
+                      payload: video,
+                    });
+                  }}
+                  aria-hidden="true"
+                ></i>
+              )}
+
+              {/* <i aria-hidden="true"></i> */}
             </div>
           </div>
         </div>

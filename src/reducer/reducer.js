@@ -23,7 +23,7 @@ export const reducer = (state, action) => {
     case "WATCH_LATER":
       return {
         ...state,
-        watchLater: [...state.watchLater.action.payload],
+        watchLater: [...state.watchLater, action.payload],
       };
     default:
       return state;

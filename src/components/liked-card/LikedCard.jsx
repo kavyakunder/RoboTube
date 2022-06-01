@@ -4,7 +4,6 @@ import { useData } from "../../context/dataContext";
 function LikedCard({ video }) {
   const { _id, title, category } = video;
 
-  //   const { state, dispatch } = useData();
   return (
     <>
       <div className="video-card" id={_id}>
