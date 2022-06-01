@@ -5,7 +5,6 @@ import "./video-list.css";
 
 function VideoList() {
   const { state, dispatch } = useData();
-  console.log(state.categories);
   const dispatchHandler = (category) => {
     dispatch({ type: "CATEGORY", payload: { category } });
   };

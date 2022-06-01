@@ -21,7 +21,6 @@ const DataProvider = ({ children }) => {
           payload: { videos: newVideos.videos },
         });
         const newCategories = await getCategories();
-        console.log("categories", newCategories.categories);
         dispatch({
           type: "CATEGORIES",
           payload: { categories: newCategories.categories },
