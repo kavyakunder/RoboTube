@@ -1,0 +1,42 @@
+.wrapper {
+  margin-top: 5rem;
+  display: flex;
+  position: relative;
+}
+.wrapper .sidebar {
+  position: fixed;
+  width: 12.5rem;
+  background-color: #f4f4f4;
+  height: 100%;
+  padding: 1rem 0;
+}
+.wrapper .sidebar h2 {
+  color: var(--secondary-dark);
+  text-align: center;
+  padding: -0.5rem 0rem 0.8rem;
+}
+.wrapper .sidebar ul li {
+  text-decoration: none;
+  padding: 1.5rem 3rem;
+}
+.wrapper .sidebar ul li a {
+  font-size: 1rem;
+  color: var(--secondary-dark);
+  text-decoration: none;
+  display: block;
+}
+.wrapper .sidebar ul li:hover {
+  background-color: #cfcfcf;
+}
+
+.wrapper .main_content {
+  margin-left: 200px;
+  width: 100%;
+}
+.wrapper .main_content .header {
+  padding: 20px;
+  background: var(--white);
+}
+.wrapper .main_content .info {
+  margin: 20px;
+}
