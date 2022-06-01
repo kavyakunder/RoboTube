@@ -2,7 +2,7 @@ import { useContext, useReducer, useEffect, createContext } from "react";
 import { reducer } from "../reducer/reducer";
 import { getCategories, getVideos } from "../services/dataService";
 
-const initialState = {
+const categoryChoice = {
   videos: [],
   categories: [],
   category: "All",
@@ -10,7 +10,7 @@ const initialState = {
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, categoryChoice);
 
   useEffect(
     () =>
