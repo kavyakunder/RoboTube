@@ -17,7 +17,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "Arduino",
     image:
-      "https://images.unsplash.com/photo-1553406830-ef2513450d76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJkdWlub3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1557855506-3619a44bab73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YXJkdWlub3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     description:
       "Arduino is a popular microcontroller board used by engineers develop various robots projects.",
   },
@@ -32,7 +32,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "Breadboard",
     image:
-      "https://images.unsplash.com/photo-1586256053828-a36b572ab01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnJlYWRib2FyZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1649959265040-2b87be9074e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJyZWFkYm9hcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     description:
       "Breadboards are one of the most fundamental pieces when learning how to build circuits",
   },
