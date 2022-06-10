@@ -3,7 +3,7 @@ import "../../pages/videos/videoCard/video-card.css";
 import { useData } from "../../context/dataContext";
 function LikedCard({ video }) {
   const { _id, title, category } = video;
-
+  const { dispatch } = useData();
   return (
     <>
       <div className="video-card" id={_id}>
@@ -15,6 +15,11 @@ function LikedCard({ video }) {
           />
           <p>{title}</p>
           <p className="category-name">{category}</p>
+          <button
+            onClick={() => dispatch({ type: "REMOVED_LIKED", payload: _id })}
+          >
+            delete
+          </button>
         </div>
       </div>
     </>

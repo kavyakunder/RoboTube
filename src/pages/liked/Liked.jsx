@@ -6,7 +6,7 @@ import LikedCard from "../../components/liked-card/LikedCard";
 
 function Liked({ video }) {
   console.log("here vide is", video);
-  const { state, dispatch } = useData();
+  const { state } = useData();
 
   console.log("state in liked page", state);
   return (
