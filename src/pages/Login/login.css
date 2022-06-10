@@ -1,0 +1,78 @@
+.login-div {
+  margin: 5.6rem auto;
+  height: 32rem;
+  width: 28rem;
+  background-color: var(--white);
+  padding: 2rem 3.75rem 1rem;
+  box-shadow: 5px 10px 18px #888888;
+}
+.logo {
+  text-align: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.25rem;
+}
+.brand-logo {
+  width: 100%;
+  border-radius: 100%;
+}
+.title,
+.sub-title {
+  text-align: center;
+}
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.sub-title {
+  font-size: 1.2rem;
+}
+.form {
+  width: 100%;
+  margin-top: 1.87rem;
+}
+.form input {
+  font-size: 1.12rem;
+  padding: 10px 20px 10px 5px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.username,
+.password {
+  display: block;
+  border-radius: 30px;
+  border: 1px solid var(--dark-grey);
+  padding: 10px;
+  margin: 8px 0;
+}
+.icons {
+  padding: 2px;
+  color: var(--dark-grey);
+}
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.btn-entry {
+  width: 90%;
+  padding: 12px 10px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.sign-up {
+  text-align: center;
+}
+.login-links {
+  text-decoration: none;
+  color: var(--secondary-dark);
+}

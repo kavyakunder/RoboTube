@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Footer } from "../../components";
+import { Footer } from "../../components";
+import { Navbar } from "../../components/navbar/Navbar";
 import { useData } from "../../context/dataContext";
 import "./home.css";
 
