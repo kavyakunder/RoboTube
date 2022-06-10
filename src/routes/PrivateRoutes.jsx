@@ -7,9 +7,6 @@ function PrivateRoutes() {
     auth: { isAuth },
   } = useAuth();
   const location = useLocation();
-  console.log("this is route!", location);
-
-  console.log("location is", location);
   return isAuth ? (
     <Outlet />
   ) : (
