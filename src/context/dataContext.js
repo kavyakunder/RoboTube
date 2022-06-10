@@ -6,6 +6,8 @@ const categoryChoice = {
   videos: [],
   categories: [],
   category: "All",
+  likes: [],
+  watchLater: [],
 };
 const DataContext = createContext();
 
