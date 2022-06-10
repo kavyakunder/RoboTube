@@ -2,28 +2,37 @@ import React from "react";
 import "../videos/videoCard/video-card.css";
 import "./liked.css";
 import { useData } from "../../context/dataContext";
-import LikedCard from "../../components/liked-card/LikedCard";
+import { useAuth } from "../../context/auth-context";
+import { Link } from "react-router-dom";
+import VideoCard from "../videos/videoCard/VideoCard";
 
-function Liked({ video }) {
-  console.log("here vide is", video);
+function Liked() {
+  const { auth } = useAuth();
   const { state } = useData();
 
-  console.log("state in liked page", state);
+  const likedList = state.videos.filter((video) => video.inLiked);
+
   return (
     <>
-      <div className="liked-section">
-        {state.likes.length === 0 ? (
-          <div>
-            <h2>Your liked list is empty!</h2>
-          </div>
-        ) : (
-          <>
-            {state.likes.map((video) => {
-              return <LikedCard video={video} key={video._id} />;
-            })}
-          </>
-        )}
-      </div>
+      {auth.isAuth === true ? (
+        <div className="liked-section">
+          {likedList.length === 0 ? (
+            <div>
+              <h2>Your liked list is empty!</h2>
+            </div>
+          ) : (
+            <>
+              {likedList.map((video) => {
+                return <VideoCard video={video} key={video._id} />;
+              })}
+            </>
+          )}
+        </div>
+      ) : (
+        <h1>
+          <Link to="/login"></Link>
+        </h1>
+      )}
     </>
   );
 }

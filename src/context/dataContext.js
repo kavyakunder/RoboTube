@@ -20,7 +20,7 @@ const DataProvider = ({ children }) => {
         const newVideos = await getVideos();
         dispatch({
           type: "VIDEOS",
-          payload: { videos: newVideos.videos },
+          payload: [...newVideos.videos],
         });
         const newCategories = await getCategories();
         dispatch({

@@ -3,19 +3,39 @@ import { useState, useEffect } from "react";
 import { fetchSingleVideo } from "../../services/fetchSingleVideo";
 import { useNavigate, useParams } from "react-router-dom";
 import { useData } from "../../context/dataContext";
-import "./single-video.css";
+import { useAuth } from "../../context/auth-context";
+import { addToLiked, removeFromLiked } from "../../services/likedVideoService";
 import ReactPlayer from "react-player";
+import "./single-video.css";
 
 function SingleVideo() {
-  const { state } = useData();
+  const { state, dispatch } = useData();
   console.log("Single video page", state.videos);
   const { videoId } = useParams();
-
+  const {
+    auth: { token },
+  } = useAuth();
   const [singleVideo, setSingleVideo] = useState({});
+
+  const getSingleVideo = state.videos?.find((video) => video._id === videoId);
+  const inLiked = getSingleVideo && getSingleVideo.inLiked;
 
   useEffect(() => {
     fetchSingleVideo(videoId, setSingleVideo);
   }, [videoId]);
+
+  const likeHandler = () => {
+    if (token) {
+      if (inLiked) {
+        removeFromLiked(dispatch, getSingleVideo._id, token);
+      } else {
+        addToLiked(dispatch, getSingleVideo, token);
+        console.log("added to liked");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="big-flex">
@@ -28,13 +48,25 @@ function SingleVideo() {
         />
         <h2>{singleVideo.title}</h2>
         <div className="video-options">
-          <button className="btn-options">
-            <i
-              class="fa-regular fa-thumbs-up video-btns"
-              aria-hidden="true"
-            ></i>
-            Like
-          </button>
+          <span onClick={likeHandler}>
+            {inLiked ? (
+              <button className="btn-options-clicked">
+                <i
+                  class="fa-solid fa-thumbs-up video-btns"
+                  aria-hidden="true"
+                ></i>
+                Liked
+              </button>
+            ) : (
+              <button className="btn-options">
+                <i
+                  class="fa-regular fa-thumbs-up video-btns"
+                  aria-hidden="true"
+                ></i>
+                Like
+              </button>
+            )}
+          </span>
           <button className="btn-options">
             <i class="fa fa-clock-o video-btns" aria-hidden="true"></i>
             Watch Later

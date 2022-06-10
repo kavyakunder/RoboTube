@@ -30,7 +30,8 @@
 }
 .btn-options:hover {
   border: 3px solid var(--primary-color);
-  background-color: #a5f3fc;
+  background-color: #cffafe;
+  /* background-color: #a5f3fc; */
   color: var(--secondary-dark);
   border-radius: 10px;
 }
@@ -43,4 +44,10 @@
 .video-btns {
   padding: 0 3px;
   font-size: 1.3rem;
+}
+.btn-options-clicked {
+  border: 3px solid var(--primary-color);
+  background-color: #a5f3fc;
+  color: var(--secondary-dark);
+  border-radius: 10px;
 }

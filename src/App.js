@@ -11,6 +11,7 @@ import WatchLater from "./pages/watchLater/WatchLater";
 import Login from "./pages/Login/Login";
 import { PrivateRoutes } from "./routes/PrivateRoutes";
 import SingleVideo from "./pages/single-video/SingleVideo";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/watchlater" element={<WatchLater />} />
         </Route>
       </Routes>
+      <Toaster />
       {/* <Home /> */}
     </>
   );
