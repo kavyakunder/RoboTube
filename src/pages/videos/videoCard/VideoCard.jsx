@@ -1,5 +1,6 @@
 import React from "react";
 import { useData } from "../../../context/dataContext";
+import { useNavigate } from "react-router-dom";
 import "./video-card.css";
 
 function VideoCard({ video }) {
@@ -7,9 +8,14 @@ function VideoCard({ video }) {
   const { _id, title, category } = video;
   console.log("state ", state);
 
+  const navigate = useNavigate();
+
+  const openSingleVideo = () => {
+    navigate(`/video/${_id}`);
+  };
   return (
     <>
-      <div className="video-card">
+      <div className="video-card" id={_id} onClick={openSingleVideo}>
         <div className="video-card-img">
           <img
             className="video-img"

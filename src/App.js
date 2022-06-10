@@ -10,6 +10,7 @@ import Liked from "./pages/liked/Liked";
 import WatchLater from "./pages/watchLater/WatchLater";
 import Login from "./pages/Login/Login";
 import { PrivateRoutes } from "./routes/PrivateRoutes";
+import SingleVideo from "./pages/single-video/SingleVideo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Explore />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/video/:videoId" element={<SingleVideo />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/liked" element={<Liked />} />
           <Route path="/watchlater" element={<WatchLater />} />
