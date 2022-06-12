@@ -18,7 +18,7 @@ function WatchLater() {
         <div className="liked-section">
           {watchLaterList.length === 0 ? (
             <div>
-              <h2>Your liked list is empty!</h2>
+              <h2>Your watch later list is empty!</h2>
             </div>
           ) : (
             <>
