@@ -75,7 +75,7 @@ function SingleVideo() {
     <div className="big-flex">
       <div className="playing-video">
         <ReactPlayer
-          onClick={historyHandler}
+          onStart={historyHandler}
           width="54rem"
           height="38rem"
           url={`https://www.youtube.com/watch?v=${singleVideo._id}`}

@@ -9,10 +9,7 @@ import {
   addToWatchLater,
   removeFromWatchLater,
 } from "../../../services/watchLaterService";
-import {
-  addToHistory,
-  removeFromHistory,
-} from "../../../services/historyService";
+
 import { useAuth } from "../../../context/auth-context";
 import "./video-card.css";
 
@@ -50,21 +47,9 @@ function VideoCard({ video }) {
     }
   };
 
-  const historyHandler = () => {
-    if (token) {
-      if (inHistory) {
-        removeFromHistory(dispatch, _id, token);
-      } else {
-        addToHistory(dispatch, video, token);
-      }
-    } else {
-      navigate("/login");
-    }
-  };
   const navigate = useNavigate();
 
   const openSingleVideo = () => {
-    historyHandler();
     navigate(`/video/${_id}`);
   };
   return (
