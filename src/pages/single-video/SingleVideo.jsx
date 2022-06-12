@@ -12,14 +12,15 @@ import {
 import { addToHistory, removeFromHistory } from "../../services/historyService";
 import ReactPlayer from "react-player";
 import "./single-video.css";
+import VideoCard from "../videos/videoCard/VideoCard";
 
 function SingleVideo() {
   const { state, dispatch } = useData();
-  console.log("Single video page", state.videos);
   const { videoId } = useParams();
   const {
     auth: { token },
   } = useAuth();
+  const { navigate } = useNavigate();
   const [singleVideo, setSingleVideo] = useState({});
 
   const getSingleVideo = state.videos?.find((video) => video._id === videoId);
@@ -131,17 +132,12 @@ function SingleVideo() {
             if (eachVideo.id !== singleVideo.id) {
               return (
                 <div className="flex-card">
-                  <ReactPlayer
-                    url={`https://www.youtube.com/watch?v=${eachVideo._id}`}
-                    width="24rem"
-                    height="20rem"
-                  />
-                  <p>{eachVideo.title}</p>
+                  <VideoCard key={eachVideo._id} video={eachVideo} />
                 </div>
               );
             }
           })
-          .slice(0, 4)}
+          .slice(0, 5)}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .flex-card {
-  margin: 1rem 0rem 1rem 1rem;
+  margin: 0rem 0rem 0rem 1rem;
 }
 .big-flex {
   display: flex;
