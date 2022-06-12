@@ -1,44 +1,77 @@
-export const reducer = (state, action) => {
-  switch (action.type) {
+export const reducer = (state, { type, payload }) => {
+  switch (type) {
     case "VIDEOS":
       return {
         ...state,
-        videos: action.payload.videos,
+        videos: [
+          ...payload.map((video) => ({
+            ...video,
+            inLiked: false,
+            inWatchLater: false,
+            inHistory: false,
+          })),
+        ],
       };
     case "CATEGORIES":
       return {
         ...state,
-        categories: action.payload.categories,
+        categories: payload.categories,
       };
     case "CATEGORY":
       return {
         ...state,
-        category: action.payload.category,
+        category: payload.category,
       };
-    case "LIKED_VIDEOS":
+    case "ADD_TO_LIKES":
       return {
         ...state,
-        likes: [...state.likes, action.payload],
+        videos: state.videos.map((video) => ({
+          ...video,
+          inLiked: payload.some((item) => item._id === video._id),
+        })),
       };
-    case "REMOVED_LIKED":
+    case "ADD_TO_WATCH_LATER":
       return {
         ...state,
-        likes: state.likes.filter((item) => item._id !== action.payload),
+        videos: state.videos.map((video) => ({
+          ...video,
+          inWatchLater: payload.some((item) => item._id === video._id),
+        })),
       };
 
-    case "WATCH_LATER":
+    case "ADD_TO_HISTORY":
       return {
         ...state,
-        watchLater: [...state.watchLater, action.payload],
+        videos: state.videos.map((video) => ({
+          ...video,
+          inHistory: payload.some((item) => item._id === video._id),
+        })),
       };
 
-    case "REMOVE_WATCHLATER":
-      return {
-        ...state,
-        watchLater: state.watchLater.filter(
-          (item) => item._id !== action.payload
-        ),
-      };
+    // case "LIKED_VIDEOS":
+    //   return {
+    //     ...state,
+    //     likes: [...state.likes, action.payload],
+    //   };
+    // case "REMOVED_LIKED":
+    //   return {
+    //     ...state,
+    //     likes: state.likes.filter((item) => item._id !== action.payload),
+    //   };
+
+    // case "WATCH_LATER":
+    //   return {
+    //     ...state,
+    //     watchLater: [...state.watchLater, action.payload],
+    //   };
+
+    // case "REMOVE_WATCHLATER":
+    //   return {
+    //     ...state,
+    //     watchLater: state.watchLater.filter(
+    //       (item) => item._id !== action.payload
+    //     ),
+    //   };
     default:
       return state;
   }
