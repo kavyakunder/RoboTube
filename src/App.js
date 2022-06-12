@@ -12,6 +12,8 @@ import { PrivateRoutes } from "./routes/PrivateRoutes";
 import SingleVideo from "./pages/single-video/SingleVideo";
 import { Toaster } from "react-hot-toast";
 import History from "./pages/history/History";
+import { Playlists } from "./pages/playlist/Playlist";
+import { SinglePlaylist } from "./pages/single-playlist/SinglePlaylist";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/liked" element={<Liked />} />
           <Route path="/watchlater" element={<WatchLater />} />
           <Route path="/history" element={<History />} />
+          <Route path="/playlists" element={<Playlists />} />
+          <Route path="/playlists/:playlistId" element={<SinglePlaylist />} />
         </Route>
       </Routes>
       <Toaster />

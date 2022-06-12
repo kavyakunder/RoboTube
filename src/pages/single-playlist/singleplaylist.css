@@ -1,0 +1,10 @@
+.single-playlist {
+  margin-left: 14rem;
+}
+.main-section-playlist {
+  display: flex;
+  flex-direction: column;
+}
+.playlist-videos {
+  display: flex;
+}

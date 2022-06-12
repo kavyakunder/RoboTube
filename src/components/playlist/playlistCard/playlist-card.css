@@ -1,0 +1,42 @@
+.playlist-card {
+  position: relative;
+  height: 17rem;
+  cursor: pointer;
+}
+
+.overlay-image {
+  height: 85%;
+  position: absolute;
+  top: 0;
+  border-radius: 0;
+}
+
+.playlist-body {
+  position: absolute;
+  opacity: 0.5;
+  background-color: var(--light-grey);
+  height: 85%;
+  width: 10rem;
+  right: -0.5rem;
+  top: 0;
+}
+.playlist-name {
+  position: absolute;
+  bottom: 0rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.playlist-length {
+  margin-top: 4rem;
+  margin-left: 4rem;
+  font-size: 3rem;
+}
+.trash-cls {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--secondary-dark);
+}
