@@ -9,6 +9,7 @@ import {
   addToWatchLater,
   removeFromWatchLater,
 } from "../../services/watchLaterService";
+import { addToHistory, removeFromHistory } from "../../services/historyService";
 import ReactPlayer from "react-player";
 import "./single-video.css";
 
@@ -24,6 +25,7 @@ function SingleVideo() {
   const getSingleVideo = state.videos?.find((video) => video._id === videoId);
   const inLiked = getSingleVideo && getSingleVideo.inLiked;
   const inWatchLater = getSingleVideo && getSingleVideo.inWatchLater;
+  const inHistory = getSingleVideo && getSingleVideo.inHistory;
 
   useEffect(() => {
     fetchSingleVideo(videoId, setSingleVideo);
@@ -55,10 +57,24 @@ function SingleVideo() {
     }
   };
 
+  const historyHandler = () => {
+    if (token) {
+      if (inHistory) {
+        removeFromHistory(dispatch, getSingleVideo._id, token);
+      } else {
+        addToHistory(dispatch, getSingleVideo, token);
+        console.log("added to history");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="big-flex">
       <div className="playing-video">
         <ReactPlayer
+          onClick={historyHandler}
           width="54rem"
           height="38rem"
           url={`https://www.youtube.com/watch?v=${singleVideo._id}`}

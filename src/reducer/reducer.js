@@ -8,6 +8,7 @@ export const reducer = (state, { type, payload }) => {
             ...video,
             inLiked: false,
             inWatchLater: false,
+            inHistory: false,
           })),
         ],
       };
@@ -35,6 +36,15 @@ export const reducer = (state, { type, payload }) => {
         videos: state.videos.map((video) => ({
           ...video,
           inWatchLater: payload.some((item) => item._id === video._id),
+        })),
+      };
+
+    case "ADD_TO_HISTORY":
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          inHistory: payload.some((item) => item._id === video._id),
         })),
       };
 

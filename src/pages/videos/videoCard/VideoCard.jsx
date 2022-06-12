@@ -9,15 +9,19 @@ import {
   addToWatchLater,
   removeFromWatchLater,
 } from "../../../services/watchLaterService";
+import {
+  addToHistory,
+  removeFromHistory,
+} from "../../../services/historyService";
 import { useAuth } from "../../../context/auth-context";
 import "./video-card.css";
 
 function VideoCard({ video }) {
   const { state, dispatch } = useData();
-  const { _id, title, category, inLiked, inWatchLater } = video;
+  const { _id, title, category, inLiked, inWatchLater, inHistory } = video;
   console.log("state ", state);
   const {
-    auth: { isAuth, token },
+    auth: { token },
   } = useAuth();
 
   const likeHandler = () => {
@@ -45,9 +49,22 @@ function VideoCard({ video }) {
       navigate("/login");
     }
   };
+
+  const historyHandler = () => {
+    if (token) {
+      if (inHistory) {
+        removeFromHistory(dispatch, _id, token);
+      } else {
+        addToHistory(dispatch, video, token);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
   const navigate = useNavigate();
 
   const openSingleVideo = () => {
+    historyHandler();
     navigate(`/video/${_id}`);
   };
   return (
