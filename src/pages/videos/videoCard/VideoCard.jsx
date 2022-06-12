@@ -5,12 +5,16 @@ import {
   addToLiked,
   removeFromLiked,
 } from "../../../services/likedVideoService";
+import {
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../../../services/watchLaterService";
 import { useAuth } from "../../../context/auth-context";
 import "./video-card.css";
 
 function VideoCard({ video }) {
   const { state, dispatch } = useData();
-  const { _id, title, category, inLiked } = video;
+  const { _id, title, category, inLiked, inWatchLater } = video;
   console.log("state ", state);
   const {
     auth: { isAuth, token },
@@ -29,6 +33,18 @@ function VideoCard({ video }) {
     }
   };
 
+  const watchLaterHandler = () => {
+    if (token) {
+      if (inWatchLater) {
+        removeFromWatchLater(dispatch, _id, token);
+      } else {
+        addToWatchLater(dispatch, video, token);
+        console.log("added to watch later");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
   const navigate = useNavigate();
 
   const openSingleVideo = () => {
@@ -63,6 +79,21 @@ function VideoCard({ video }) {
                 )}
               </span>
 
+              <span onClick={watchLaterHandler}>
+                {inWatchLater ? (
+                  <i
+                    class="fa fa-clock-o  video-icons"
+                    style={{ color: "#06b6d4" }}
+                    aria-hidden="true"
+                  ></i>
+                ) : (
+                  <i class="fa fa-clock-o video-icons" aria-hidden="true"></i>
+                )}
+              </span>
+              <span>
+                <i class="fas fa-folder-plus"></i>
+              </span>
+
               {/* {state.likes.find((prod) => prod._id === _id) ? (
                 <i
                   class="fa fa-thumbs-up"
@@ -82,7 +113,7 @@ function VideoCard({ video }) {
                 ></i>
               )} */}
 
-              {state.watchLater.find((prod) => prod._id === _id) ? (
+              {/* {state.watchLater.find((prod) => prod._id === _id) ? (
                 <i
                   class="fa fa-clock-o"
                   style={{ color: "#06b6d4" }}
@@ -99,7 +130,7 @@ function VideoCard({ video }) {
                   }}
                   aria-hidden="true"
                 ></i>
-              )}
+              )} */}
             </div>
           </div>
         </div>

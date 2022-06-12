@@ -5,6 +5,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useData } from "../../context/dataContext";
 import { useAuth } from "../../context/auth-context";
 import { addToLiked, removeFromLiked } from "../../services/likedVideoService";
+import {
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../../services/watchLaterService";
 import ReactPlayer from "react-player";
 import "./single-video.css";
 
@@ -19,6 +23,7 @@ function SingleVideo() {
 
   const getSingleVideo = state.videos?.find((video) => video._id === videoId);
   const inLiked = getSingleVideo && getSingleVideo.inLiked;
+  const inWatchLater = getSingleVideo && getSingleVideo.inWatchLater;
 
   useEffect(() => {
     fetchSingleVideo(videoId, setSingleVideo);
@@ -30,6 +35,19 @@ function SingleVideo() {
         removeFromLiked(dispatch, getSingleVideo._id, token);
       } else {
         addToLiked(dispatch, getSingleVideo, token);
+        console.log("added to liked");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const watchLaterHandler = () => {
+    if (token) {
+      if (inWatchLater) {
+        removeFromWatchLater(dispatch, getSingleVideo._id, token);
+      } else {
+        addToWatchLater(dispatch, getSingleVideo, token);
         console.log("added to liked");
       }
     } else {
@@ -67,10 +85,21 @@ function SingleVideo() {
               </button>
             )}
           </span>
-          <button className="btn-options">
-            <i class="fa fa-clock-o video-btns" aria-hidden="true"></i>
-            Watch Later
-          </button>
+
+          <span onClick={watchLaterHandler}>
+            {inWatchLater ? (
+              <button className="btn-options-clicked">
+                <i class="fa-solid fa-clock video-btns" aria-hidden="true"></i>
+                Watch Later
+              </button>
+            ) : (
+              <button className="btn-options">
+                <i class="fa fa-clock-o video-btns" aria-hidden="true"></i>
+                Watch Later
+              </button>
+            )}
+          </span>
+
           <button className="btn-options">
             <i class="fa fa-floppy-o video-btns" aria-hidden="true"></i>
             Save to playlist

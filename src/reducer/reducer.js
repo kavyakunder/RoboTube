@@ -7,6 +7,7 @@ export const reducer = (state, { type, payload }) => {
           ...payload.map((video) => ({
             ...video,
             inLiked: false,
+            inWatchLater: false,
           })),
         ],
       };
@@ -28,6 +29,15 @@ export const reducer = (state, { type, payload }) => {
           inLiked: payload.some((item) => item._id === video._id),
         })),
       };
+    case "ADD_TO_WATCH_LATER":
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          inWatchLater: payload.some((item) => item._id === video._id),
+        })),
+      };
+
     // case "LIKED_VIDEOS":
     //   return {
     //     ...state,
