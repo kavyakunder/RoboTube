@@ -1,5 +1,6 @@
 import React from "react";
 import { useData } from "../../../context/dataContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   addToLiked,
@@ -11,14 +12,17 @@ import {
 } from "../../../services/watchLaterService";
 
 import { useAuth } from "../../../context/auth-context";
+import { PlaylistModal } from "../../../components/playlist/playlist-modal/PlaylistModal";
 import "./video-card.css";
 
 function VideoCard({ video }) {
   const { state, dispatch } = useData();
-  const { _id, title, category, inLiked, inWatchLater, inHistory } = video;
+  const { _id, title, category, inLiked, inWatchLater } = video;
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+
   console.log("state ", state);
   const {
-    auth: { token },
+    auth: { isAuth, token },
   } = useAuth();
 
   const likeHandler = () => {
@@ -92,47 +96,19 @@ function VideoCard({ video }) {
                   <i class="fa fa-clock-o video-icons" aria-hidden="true"></i>
                 )}
               </span>
-              <span>
+              <span
+                onClick={() => {
+                  isAuth ? setShowPlaylistModal(true) : navigate("/login");
+                }}
+              >
                 <i class="fas fa-folder-plus"></i>
               </span>
-
-              {/* {state.likes.find((prod) => prod._id === _id) ? (
-                <i
-                  class="fa fa-thumbs-up"
-                  style={{ color: "#06b6d4" }}
-                  aria-hidden="true"
-                ></i>
-              ) : (
-                <i
-                  className="fa fa-thumbs-up"
-                  onClick={() => {
-                    dispatch({
-                      type: "LIKED_VIDEOS",
-                      payload: video,
-                    });
-                  }}
-                  aria-hidden="true"
-                ></i>
-              )} */}
-
-              {/* {state.watchLater.find((prod) => prod._id === _id) ? (
-                <i
-                  class="fa fa-clock-o"
-                  style={{ color: "#06b6d4" }}
-                  aria-hidden="true"
-                ></i>
-              ) : (
-                <i
-                  className="fa fa-clock-o"
-                  onClick={() => {
-                    dispatch({
-                      type: "WATCH_LATER",
-                      payload: video,
-                    });
-                  }}
-                  aria-hidden="true"
-                ></i>
-              )} */}
+              {showPlaylistModal ? (
+                <PlaylistModal
+                  video={video}
+                  setShowPlaylistModal={setShowPlaylistModal}
+                />
+              ) : null}
             </div>
           </div>
         </div>
