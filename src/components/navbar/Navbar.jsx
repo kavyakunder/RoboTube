@@ -36,7 +36,7 @@ function Navbar() {
               </Link>
               <Link
                 className="navbar-link"
-                to="/logout"
+                to="/"
                 onClick={() => signoutAuth(setAuth)}
               >
                 Logout
