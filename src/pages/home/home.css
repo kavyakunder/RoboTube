@@ -36,3 +36,13 @@
 .cat-name {
   text-align: center;
 }
+.link-handler {
+  text-decoration: none;
+}
+.link-handler:hover {
+  transition: 600ms;
+
+  transform: scale(1.1);
+
+  /* text-decoration: none; */
+}

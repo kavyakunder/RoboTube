@@ -21,22 +21,26 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <span className="heading">RoboTube</span>
+        <span className="heading-robotube">
+          <img className="youtube-img" src="assets/youtube-react.png" alt="" />
+          RoboTube
+        </span>
         <div className="navbar-options">
           {/* <Link className="navbar-links" to="/">
             Home
           </Link> */}
           {auth.isAuth === true ? (
             <>
-              <Link className="navbar-links" to="/videos">
+              <Link className="navbar-link" to="/videos">
                 Home
               </Link>
-              <button
-                className="logout-btn"
+              <Link
+                className="navbar-link"
+                to="/logout"
                 onClick={() => signoutAuth(setAuth)}
               >
                 Logout
-              </button>
+              </Link>
             </>
           ) : (
             <Link className="navbar-links" to="/login">

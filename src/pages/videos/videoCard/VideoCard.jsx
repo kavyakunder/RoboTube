@@ -74,7 +74,7 @@ function VideoCard({ video }) {
                 {inLiked ? (
                   <i
                     class="fa fa-thumbs-up  video-icons"
-                    style={{ color: "#06b6d4" }}
+                    style={{ color: `var(--secondary-dark)` }}
                     aria-hidden="true"
                   ></i>
                 ) : (
@@ -89,7 +89,7 @@ function VideoCard({ video }) {
                 {inWatchLater ? (
                   <i
                     class="fa fa-clock-o  video-icons"
-                    style={{ color: "#06b6d4" }}
+                    style={{ color: `var(--secondary-dark)` }}
                     aria-hidden="true"
                   ></i>
                 ) : (
@@ -101,7 +101,7 @@ function VideoCard({ video }) {
                   isAuth ? setShowPlaylistModal(true) : navigate("/login");
                 }}
               >
-                <i class="fas fa-folder-plus"></i>
+                <i class="fas fa-folder-plus folder-color video-icons"></i>
               </span>
               {showPlaylistModal ? (
                 <PlaylistModal

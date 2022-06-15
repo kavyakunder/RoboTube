@@ -8,22 +8,40 @@ function Sidebar() {
       <div className="sidebar">
         <ul className="lists">
           <Link to="/">
-            <li className="sidebar-links">Home</li>
+            <li className="sidebar-links">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </li>
           </Link>
           <Link to="/videos">
-            <li className="sidebar-links">Explore</li>
+            <li className="sidebar-links">
+              <i class="fa-solid fa-compass"></i>
+              Explore
+            </li>
           </Link>
           <Link to="/playlists">
-            <li> Playlist</li>
+            <li>
+              <i class="fa-solid fa-folder-plus"></i>
+              Playlist
+            </li>
           </Link>
           <Link to="/liked">
-            <li>Liked</li>
+            <li>
+              <i class="fa-solid fa-thumbs-up"></i>
+              Liked
+            </li>
           </Link>
           <Link to="/watchlater">
-            <li>Watch Later</li>
+            <li>
+              <i class="fa-solid fa-clock"></i>
+              Watch Later
+            </li>
           </Link>
           <Link to="/history">
-            <li>History</li>
+            <li>
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              History
+            </li>
           </Link>
         </ul>
       </div>

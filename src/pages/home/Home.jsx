@@ -1,14 +1,18 @@
 import React from "react";
-import { Footer } from "../../components";
-import { Navbar } from "../../components/navbar/Navbar";
+import { Link } from "react-router-dom";
+import { Footer, Sidebar } from "../../components";
 import { useData } from "../../context/dataContext";
 import "./home.css";
-
+import { useLocation } from "react-router-dom";
 function Home() {
-  const { state } = useData();
+  const { state, dispatch } = useData();
+  const dispatchHandler = (category) => {
+    dispatch({ type: "CATEGORY", payload: { category } });
+  };
+  const { pathname } = useLocation();
+  console.log("Location here is", pathname);
   return (
     <>
-      <Navbar />
       <div>
         <div className="hero-section-1">
           <img
@@ -23,16 +27,22 @@ function Home() {
           {state.categories.map((eachCategory) => {
             return (
               <>
-                <div className="single-category">
-                  <div className="each-image">
-                    <img
-                      className="section-image"
-                      src={eachCategory.image}
-                      alt={eachCategory.categoryName}
-                    />
+                <Link
+                  className="link-handler"
+                  to="/videos"
+                  onClick={() => dispatchHandler(category.categoryName)}
+                >
+                  <div className="single-category">
+                    <div className="each-image">
+                      <img
+                        className="section-image"
+                        src={eachCategory.image}
+                        alt={eachCategory.categoryName}
+                      />
+                    </div>
+                    <h2 className="cat-name">{eachCategory.categoryName}</h2>
                   </div>
-                  <h2 className="cat-name">{eachCategory.categoryName}</h2>
-                </div>
+                </Link>
               </>
             );
           })}

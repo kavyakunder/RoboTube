@@ -14,12 +14,17 @@ import { Toaster } from "react-hot-toast";
 import History from "./pages/history/History";
 import { Playlists } from "./pages/playlist/Playlist";
 import { SinglePlaylist } from "./pages/single-playlist/SinglePlaylist";
-
+import { useLocation } from "react-router-dom";
 function App() {
+  // const { location } = useLocation();
+  const { pathname } = useLocation();
+
+  console.log("Location here is", location);
   return (
     <>
       <Navbar />
-      <Sidebar />
+      {pathname === "/" ? <></> : <Sidebar />}
+      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Explore />} />
@@ -34,7 +39,6 @@ function App() {
         </Route>
       </Routes>
       <Toaster />
-      {/* <Home /> */}
     </>
   );
 }
