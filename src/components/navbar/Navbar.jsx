@@ -43,7 +43,7 @@ function Navbar() {
               </Link>
             </>
           ) : (
-            <Link className="navbar-links" to="/login">
+            <Link className="navbar-link" to="/login">
               Login
             </Link>
           )}
