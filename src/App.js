@@ -16,7 +16,6 @@ import { Playlists } from "./pages/playlist/Playlist";
 import { SinglePlaylist } from "./pages/single-playlist/SinglePlaylist";
 import { useLocation } from "react-router-dom";
 function App() {
-  console.log("pathname");
   // const { location } = useLocation();
   const { pathname } = useLocation();
 
@@ -24,7 +23,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {pathname === "/" ? <></> : <Sidebar />}
+      {pathname === "/" || pathname === "/login" ? <></> : <Sidebar />}
       {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
