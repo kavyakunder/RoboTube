@@ -8,8 +8,6 @@ import VideoList from "../videos/videoList/VideoList";
 function Explore() {
   return (
     <div>
-      <Navbar />
-      <Sidebar />
       <VideoList />
     </div>
   );

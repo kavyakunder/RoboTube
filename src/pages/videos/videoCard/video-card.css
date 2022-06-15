@@ -40,10 +40,12 @@
 .video-card {
   width: 23rem;
   height: 17rem;
-  background-color: rgb(244, 244, 244);
+  background-color: #cffafe;
+  /* background-color: rgb(244, 244, 244); */
   margin: 1rem;
   border-radius: 10px;
-  border: 1px solid rgb(199, 199, 199);
+  /* border: 1px solid rgb(199, 199, 199); */
+  border: 1px solid #06b6d4;
 }
 .video-cards {
   margin-left: 16rem;
@@ -53,8 +55,8 @@
 }
 
 .video-img {
+  cursor: pointer;
   border-radius: 10px 10px 0 0;
-
   height: 100%;
   object-fit: cover;
   width: 100%;
@@ -73,6 +75,13 @@
   justify-content: space-between;
 }
 .fa {
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+}
+.fa:hover {
+  color: #0891b2;
+  cursor: pointer;
   font-size: 1.4rem;
   padding: 0 1rem;
 }
@@ -83,4 +92,11 @@
 .fas {
   font-size: 1.4rem;
   padding: 0 1rem;
+}
+.folder-color:hover {
+  cursor: pointer;
+  color: #0891b2;
+}
+.video-icons {
+  color: var(--primary-color);
 }

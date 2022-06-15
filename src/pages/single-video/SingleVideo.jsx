@@ -11,17 +11,19 @@ import {
 } from "../../services/watchLaterService";
 import { addToHistory, removeFromHistory } from "../../services/historyService";
 import ReactPlayer from "react-player";
-import "./single-video.css";
 import VideoCard from "../videos/videoCard/VideoCard";
+import { PlaylistModal } from "../../components/playlist/playlist-modal/PlaylistModal";
+import "./single-video.css";
 
 function SingleVideo() {
   const { state, dispatch } = useData();
   const { videoId } = useParams();
   const {
-    auth: { token },
+    auth: { isAuth, token },
   } = useAuth();
   const { navigate } = useNavigate();
   const [singleVideo, setSingleVideo] = useState({});
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
 
   const getSingleVideo = state.videos?.find((video) => video._id === videoId);
   const inLiked = getSingleVideo && getSingleVideo.inLiked;
@@ -117,7 +119,12 @@ function SingleVideo() {
             )}
           </span>
 
-          <button className="btn-options">
+          <button
+            onClick={() => {
+              isAuth ? setShowPlaylistModal(true) : navigate("/login");
+            }}
+            className="btn-options"
+          >
             <i class="fa fa-floppy-o video-btns" aria-hidden="true"></i>
             Save to playlist
           </button>
@@ -126,6 +133,12 @@ function SingleVideo() {
 
         <p>{singleVideo.description}</p>
       </div>
+      {showPlaylistModal ? (
+        <PlaylistModal
+          video={singleVideo}
+          setShowPlaylistModal={setShowPlaylistModal}
+        />
+      ) : null}
       <div className="flex-box">
         {state.videos
           .map((eachVideo) => {

@@ -31,7 +31,6 @@
 .btn-options:hover {
   border: 3px solid var(--primary-color);
   background-color: #cffafe;
-  /* background-color: #a5f3fc; */
   color: var(--secondary-dark);
   border-radius: 10px;
 }

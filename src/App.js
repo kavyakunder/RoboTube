@@ -12,12 +12,19 @@ import { PrivateRoutes } from "./routes/PrivateRoutes";
 import SingleVideo from "./pages/single-video/SingleVideo";
 import { Toaster } from "react-hot-toast";
 import History from "./pages/history/History";
-
+import { Playlists } from "./pages/playlist/Playlist";
+import { SinglePlaylist } from "./pages/single-playlist/SinglePlaylist";
+import { useLocation } from "react-router-dom";
 function App() {
+  // const { location } = useLocation();
+  const { pathname } = useLocation();
+
+  console.log("Location here is", location);
   return (
     <>
       <Navbar />
-      <Sidebar />
+      {pathname === "/" ? <></> : <Sidebar />}
+      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Explore />} />
@@ -27,10 +34,11 @@ function App() {
           <Route path="/liked" element={<Liked />} />
           <Route path="/watchlater" element={<WatchLater />} />
           <Route path="/history" element={<History />} />
+          <Route path="/playlists" element={<Playlists />} />
+          <Route path="/playlists/:playlistId" element={<SinglePlaylist />} />
         </Route>
       </Routes>
       <Toaster />
-      {/* <Home /> */}
     </>
   );
 }

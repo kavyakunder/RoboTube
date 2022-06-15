@@ -1,0 +1,18 @@
+.basic-card {
+  background-color: white;
+  border: 1px solid var(--primary-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18%;
+  z-index: 999;
+}
+.button-cls {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}

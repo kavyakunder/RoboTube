@@ -48,30 +48,29 @@ export const reducer = (state, { type, payload }) => {
         })),
       };
 
-    // case "LIKED_VIDEOS":
-    //   return {
-    //     ...state,
-    //     likes: [...state.likes, action.payload],
-    //   };
-    // case "REMOVED_LIKED":
-    //   return {
-    //     ...state,
-    //     likes: state.likes.filter((item) => item._id !== action.payload),
-    //   };
+    case "GET_PLAYLISTS":
+      return { ...state, playlists: payload.playlists };
 
-    // case "WATCH_LATER":
-    //   return {
-    //     ...state,
-    //     watchLater: [...state.watchLater, action.payload],
-    //   };
+    case "ADD_VIDEO_TO_PLAYLIST":
+      return {
+        ...state,
 
-    // case "REMOVE_WATCHLATER":
-    //   return {
-    //     ...state,
-    //     watchLater: state.watchLater.filter(
-    //       (item) => item._id !== action.payload
-    //     ),
-    //   };
+        playlists: state.playlists.map((playlist) =>
+          playlist._id === payload.playlist._id ? payload.playlist : playlist
+        ),
+      };
+
+    case "DELETE_VIDEO_FROM_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.map((playlist) =>
+          playlist._id === payload.playlist._id ? payload.playlist : playlist
+        ),
+      };
+
+    case "SET_LOADING":
+      return { ...state, isLoading: payload };
+
     default:
       return state;
   }

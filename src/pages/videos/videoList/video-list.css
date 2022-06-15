@@ -17,3 +17,8 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.btns button:hover {
+  cursor: pointer;
+  background-color: #cffafe;
+  color: var(--secondary-dark);
+}
