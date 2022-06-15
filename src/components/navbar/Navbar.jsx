@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
+import { toast } from "react-hot-toast";
 import "./navbar.css";
 function Navbar() {
   const { auth, setAuth } = useAuth();
@@ -36,7 +37,7 @@ function Navbar() {
               </Link>
               <Link
                 className="navbar-link"
-                to="/logout"
+                to="/"
                 onClick={() => signoutAuth(setAuth)}
               >
                 Logout

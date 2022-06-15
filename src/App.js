@@ -23,8 +23,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {pathname === "/" ? <></> : <Sidebar />}
-      {/* <Sidebar /> */}
+      {pathname === "/" || pathname === "/login" ? <></> : <Sidebar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Explore />} />

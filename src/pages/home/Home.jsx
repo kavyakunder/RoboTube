@@ -6,9 +6,9 @@ import "./home.css";
 import { useLocation } from "react-router-dom";
 function Home() {
   const { state, dispatch } = useData();
-  const dispatchHandler = (category) => {
-    dispatch({ type: "CATEGORY", payload: { category } });
-  };
+  // const dispatchHandler = (category) => {
+  //   dispatch({ type: "CATEGORY", payload: { category } });
+  // };
   const { pathname } = useLocation();
   console.log("Location here is", pathname);
   return (
@@ -30,7 +30,7 @@ function Home() {
                 <Link
                   className="link-handler"
                   to="/videos"
-                  onClick={() => dispatchHandler(category.categoryName)}
+                  // onClick={() => dispatchHandler(category.categoryName)}
                 >
                   <div className="single-category">
                     <div className="each-image">

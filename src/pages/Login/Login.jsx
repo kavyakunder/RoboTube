@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { loginAuth } from "../../services/loginService";
+import { toast } from "react-hot-toast";
 import "./login.css";
 
 function Login() {
@@ -35,8 +36,10 @@ function Login() {
           token: encodedToken,
           user: foundUser.firstName,
         }));
+        toast.success("Login successful!");
         navigate("/videos");
       } else {
+        toast.error("Login failed!");
         throw new Error("Login failed");
       }
     } catch (error) {
