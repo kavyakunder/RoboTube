@@ -32,8 +32,8 @@ export const videos = [
   },
 
   {
-    _id: "6YH02U96DfY",
-    title: "Types of Sensors",
+    _id: "2PA0f5edKsM",
+    title: "Line Following Sensor Robot",
     category: "Sensor",
   },
 
