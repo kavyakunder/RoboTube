@@ -1,48 +1,54 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./sidebar.css";
 function Sidebar() {
+  const navLinkStyle = ({ isActive }) => {
+    return {
+      backgroundColor: isActive ? "#CFFAFE" : "white",
+      color: isActive ? "var(--primary-color)" : "var(--secondary-dark)",
+    };
+  };
   return (
     <div className="wrapper">
       <div className="sidebar">
         <ul className="lists">
-          <Link to="/">
+          <NavLink to="/" style={navLinkStyle}>
             <li className="sidebar-links">
               <i class="fa-solid fa-house"></i>
               Home
             </li>
-          </Link>
-          <Link to="/videos">
+          </NavLink>
+          <NavLink to="/videos" style={navLinkStyle}>
             <li className="sidebar-links">
               <i class="fa-solid fa-compass"></i>
               Explore
             </li>
-          </Link>
-          <Link to="/playlists">
+          </NavLink>
+          <NavLink to="/playlists" style={navLinkStyle}>
             <li>
               <i class="fa-solid fa-folder-plus"></i>
               Playlist
             </li>
-          </Link>
-          <Link to="/liked">
+          </NavLink>
+          <NavLink to="/liked" style={navLinkStyle}>
             <li>
               <i class="fa-solid fa-thumbs-up"></i>
               Liked
             </li>
-          </Link>
-          <Link to="/watchlater">
+          </NavLink>
+          <NavLink to="/watchlater" style={navLinkStyle}>
             <li>
               <i class="fa-solid fa-clock"></i>
               Watch Later
             </li>
-          </Link>
-          <Link to="/history">
+          </NavLink>
+          <NavLink to="/history" style={navLinkStyle}>
             <li>
               <i class="fa-solid fa-clock-rotate-left"></i>
               History
             </li>
-          </Link>
+          </NavLink>
         </ul>
       </div>
     </div>
