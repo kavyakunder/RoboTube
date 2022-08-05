@@ -15,20 +15,24 @@ import History from "./pages/history/History";
 import { Playlists } from "./pages/playlist/Playlist";
 import { SinglePlaylist } from "./pages/single-playlist/SinglePlaylist";
 import { useLocation } from "react-router-dom";
+import SignUp from "./pages/Login/SignUp";
 function App() {
-  // const { location } = useLocation();
   const { pathname } = useLocation();
 
   console.log("Location here is", location);
   return (
     <>
       <Navbar />
-      {pathname === "/" || pathname === "/login" ? <></> : <Sidebar />}
-      {/* <Sidebar /> */}
+      {pathname === "/" || pathname === "/login" || pathname === "/signup" ? (
+        <></>
+      ) : (
+        <Sidebar />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/videos" element={<Explore />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/video/:videoId" element={<SingleVideo />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/liked" element={<Liked />} />
