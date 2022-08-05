@@ -13,7 +13,13 @@ const PlaylistModal = ({ video, setShowPlaylistModal }) => {
 
   return (
     <div className="basic-card">
-      <h2>Add to Playlists</h2>
+      <div className="add-close">
+        <h2>Add to Playlists</h2>
+        <i
+          class="fa-solid fa-xmark"
+          onClick={() => setShowPlaylistModal(false)}
+        ></i>
+      </div>
 
       <div className="form-group">
         {isLoading ? null : (
@@ -24,9 +30,10 @@ const PlaylistModal = ({ video, setShowPlaylistModal }) => {
               );
 
               return (
-                <label key={playlist._id}>
+                <label key={playlist._id} className="checkbox-cls">
                   <input
                     type="checkbox"
+                    className="checkbox"
                     checked={videoInPlaylist ? true : false}
                     onChange={() =>
                       videoInPlaylist

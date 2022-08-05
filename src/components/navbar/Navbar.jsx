@@ -43,9 +43,14 @@ function Navbar() {
               </Link>
             </>
           ) : (
-            <Link className="navbar-link" to="/login">
-              Login
-            </Link>
+            <>
+              <Link className="navbar-link" to="/videos">
+                Home
+              </Link>
+              <Link className="navbar-link" to="/login">
+                Login
+              </Link>
+            </>
           )}
         </div>
       </div>

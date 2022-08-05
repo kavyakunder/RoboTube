@@ -1,12 +1,9 @@
 .navbar {
-  /* display: flex; */
-  /* justify-content: space-between; */
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
 }
-/* 06B6D4 */
 .heading-robotube {
   font-size: 2rem;
   margin-top: 0.5rem;
@@ -26,5 +23,5 @@
   margin-top: 1rem;
 }
 .navbar-link:hover {
-  text-decoration: underline;
+  color: var(--white);
 }

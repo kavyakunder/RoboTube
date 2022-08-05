@@ -80,17 +80,7 @@ function Login() {
               />
             </i>
           </div>
-          <div className="options">
-            <div className="remember-me">
-              <input type="checkbox" />
-              <label for="remember-me">Remember Me</label>
-            </div>
-            <div className="forgot-password">
-              <a className="login-links" href="#">
-                Forgot Password?
-              </a>
-            </div>
-          </div>
+
           <button className="btn-entry">Login</button>
           <button
             className="btn-entry"
@@ -102,8 +92,9 @@ function Login() {
             Login with test credentials
           </button>
           <div className="sign-up">
+            New to RoboNote?
             <Link className="login-links" to="/signup">
-              New to RoboNote?Sign Up here!
+              Sign Up here!
             </Link>
           </div>
         </div>
