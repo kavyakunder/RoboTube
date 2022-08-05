@@ -9,10 +9,29 @@
   z-index: 999;
 }
 .button-cls {
+  margin-left: 2.5rem;
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 .input-group {
   display: flex;
   flex-direction: column;
+}
+.add-close {
+  display: flex;
+  align-items: center;
+}
+.fa-xmark {
+  color: var(--primary-color);
+}
+.form-group {
+  margin: auto;
+}
+.checkbox-cls {
+  margin-left: 1rem;
+  font-size: 1.4rem;
+}
+.checkbox {
+  height: 20px;
+  width: 20px;
 }
