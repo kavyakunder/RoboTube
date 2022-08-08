@@ -78,8 +78,8 @@ function SingleVideo() {
       <div className="playing-video">
         <ReactPlayer
           onStart={historyHandler}
-          width="54rem"
-          height="38rem"
+          width="48rem"
+          height="35rem"
           url={`https://www.youtube.com/watch?v=${singleVideo._id}`}
           controls={true}
         />

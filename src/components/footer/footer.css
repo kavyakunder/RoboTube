@@ -1,7 +1,7 @@
-footer {
+/* footer {
   position: fixed;
   bottom: 0;
-}
+} */
 
 .footer {
   background-color: #040a18;
@@ -20,7 +20,7 @@ footer {
   vertical-align: top;
 }
 
-@media (max-height: 800px) {
+@media (max-height: 1500px) {
   footer {
     position: static;
   }

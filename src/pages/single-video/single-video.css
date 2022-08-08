@@ -10,6 +10,7 @@
   flex-direction: row;
   margin-left: 16rem;
   margin-top: 2rem;
+  justify-content: space-evenly;
 }
 .playing-video {
   height: 60rem;
